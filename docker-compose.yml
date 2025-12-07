@@ -1,0 +1,14 @@
+version: '3.8'
+# AI GENERATED: Docker Compose file for PostgreSQL database for Advent of Code
+services:
+  postgres:
+    image: postgres:16
+    container_name: aoc_postgres
+    environment:
+      POSTGRES_PASSWORD: aoc
+      POSTGRES_DB: aoc
+    ports:
+      - "5432:5432"
+    volumes:
+      # Auto-load data on first startup
+      - ./load_data.sql:/docker-entrypoint-initdb.d/load_data.sql:ro
